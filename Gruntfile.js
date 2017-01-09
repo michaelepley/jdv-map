@@ -23,9 +23,9 @@ module.exports = function(grunt) {
         },
         connect: {
             proxies: [{
-                context: '/jdv-map',
+                context: '/jdv',
                 host: 'localhost',
-                port: 3000,
+                port: 8080,
                 https: false,
                 changeOrigin: false
             }],
