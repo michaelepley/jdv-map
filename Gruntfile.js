@@ -23,8 +23,8 @@ module.exports = function(grunt) {
         },
         connect: {
             proxies: [{
-                context: '/jdv',
-                host: 'localhost',
+                context: '/odata',
+                host: 'demo-vm',
                 port: 8080,
                 https: false,
                 changeOrigin: false

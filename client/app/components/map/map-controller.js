@@ -9,32 +9,46 @@
     function Controller($scope, $log, DataVirtSrvc) {
 
         $scope.reload = function() {
-            $log.debug('reload called');
-            $scope.result = DataVirtSrvc.get();
-            $log.debug($scope.result);
+            activate();
         };
-
-        $scope.markers = {
-            mainMarker: {
-                lat: 37,
-                lng: -80,
-                focus: true,
-                title: 'Marker',
-                message: 'Item message',
-                draggable: false
-            }
-        }
 
         $scope.center = {
             lat: 37,
-            lng: -80,
-            zoom: 6
+            lng: -88,
+            zoom: 5
         }
 
-        ////////////
+        function activate() {
+            $scope.items = [];
+            $scope.displayItems = [];
+            $scope.markers = [];
 
-        function activate() {}
+            DataVirtSrvc.get(function(res) {
+                angular.forEach(res.d.results, function(result) {
+                    var item = {
+                        id: result.id,
+                        description: result.description,
+                        title: result.title,
+                        latitude: result.latitude,
+                        longitude: result.longitude
+                    }
+                    $scope.items.push(item);
+
+                    var marker = {
+                      lng: parseFloat(result.longitude),
+                      lat: parseFloat(result.latitude),
+                      title: result.description,
+                      message: result.title,
+                      draggable: false
+                    }
+                    $scope.markers.push(marker);
+                });
+
+                $scope.displayedItems = $scope.items;
+            });
+        }
 
         activate();
+
     }
 })();
