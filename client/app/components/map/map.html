@@ -1,3 +1,41 @@
-<h2>Item Map</h2>
+<br>
+<button type="button" class="btn btn-primary" ng-click="reload()">
+        <span class="fa fa-refresh"></span>&nbsp;&nbsp;Reload
+</button>
+<br>
 <br>
 <leaflet lf-center="center" markers="markers" height="480px" width="100%"></leaflet>
+<br>
+<div class="table-responsive">
+    <table st-table="displayedItems" st-safe-src="items" class="table table-striped ev-vcenter">
+        <thead>
+            <tr>
+                <th st-sort="id" st-sort-default="true">ID</th>
+                <th st-sort="title">Title</th>
+                <th>Description</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in displayedItems">
+                <td>{{item.id}}</td>
+
+                <td>{{item.title }}</td>
+
+                <td>{{item.description }}</td>
+
+                <td>{{item.latitude }}</td>
+
+                <td>{{item.longitude }}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4" class="text-center">
+                    <div st-pagination="" st-items-by-page="10"></div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

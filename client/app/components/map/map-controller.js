@@ -4,9 +4,15 @@
     angular.module('item-app')
         .controller('LeafletCtrl', Controller);
 
-    Controller.$inject = ['$scope'];
+    Controller.$inject = ['$scope', '$log', 'DataVirtSrvc'];
 
-    function Controller($scope) {
+    function Controller($scope, $log, DataVirtSrvc) {
+
+        $scope.reload = function() {
+            $log.debug('reload called');
+            $scope.result = DataVirtSrvc.get();
+            $log.debug($scope.result);
+        };
 
         $scope.markers = {
             mainMarker: {

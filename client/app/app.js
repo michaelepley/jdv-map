@@ -7,6 +7,7 @@
         'ui.bootstrap',
         'smart-table',
         'nemLogging',
-        'ui-leaflet'
+        'ui-leaflet',
+        'base64'
     ]);
 })();
