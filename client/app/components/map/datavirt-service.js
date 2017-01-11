@@ -7,12 +7,12 @@
     Service.$inject = ['$resource','$base64'];
 
     function Service($resource, $base64) {
-        return $resource('/odata/org/OrgData.OrgData?$format=json', {}, {
+        return $resource('/odata/POI_VDB/POI_Merged.poi_merged?$format=json', {}, {
             get: {
                 method: 'GET',
                 headers: {
                     Authorization: 'Basic ' +
-                        $base64.encode('teiidUser' + ':' + '1password#')
+                        $base64.encode('teiidUser' + ':' + 'Redhat1!')
                 }
             }
         });

@@ -24,7 +24,7 @@ module.exports = function(grunt) {
         connect: {
             proxies: [{
                 context: '/odata',
-                host: 'demo-vm',
+                host: 'localhost',
                 port: 8080,
                 https: false,
                 changeOrigin: false

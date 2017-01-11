@@ -14,7 +14,7 @@
 
         $scope.center = {
             lat: 37,
-            lng: -88,
+            lng: -100,
             zoom: 5
         }
 
@@ -28,17 +28,19 @@
                     var item = {
                         id: result.id,
                         description: result.description,
-                        title: result.title,
-                        latitude: result.latitude,
-                        longitude: result.longitude
+                        title: result.name,
+                        latitude: result.lat,
+                        longitude: result.lon,
+			rating: result.rating,
+			org: result.org
                     }
                     $scope.items.push(item);
 
                     var marker = {
-                      lng: parseFloat(result.longitude),
-                      lat: parseFloat(result.latitude),
-                      title: result.description,
-                      message: result.title,
+                      lng: parseFloat(result.lon),
+                      lat: parseFloat(result.lat),
+                      title: result.name,
+                      message: result.description,
                       draggable: false
                     }
                     $scope.markers.push(marker);

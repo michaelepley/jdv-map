@@ -10,11 +10,13 @@
     <table st-table="displayedItems" st-safe-src="items" class="table table-striped ev-vcenter">
         <thead>
             <tr>
-                <th st-sort="id" st-sort-default="true">ID</th>
-                <th st-sort="title">Title</th>
-                <th>Description</th>
-                <th>Latitude</th>
-                <th>Longitude</th>
+                <th st-sort="id" st-sort-default="true">DB-ID</th>
+                <th st-sort="title">DB-Name</th>
+		<th st-sort="rating">DB-Rating</th>
+                <th>KML-Description</th>
+                <th>KML-Latitude</th>
+                <th>KML-Longitude</th>
+		<th>S3-Org</td>
             </tr>
         </thead>
         <tbody>
@@ -23,11 +25,15 @@
 
                 <td>{{item.title }}</td>
 
+		<td>{{item.rating }}</td>
+
                 <td>{{item.description }}</td>
 
                 <td>{{item.latitude }}</td>
 
                 <td>{{item.longitude }}</td>
+
+		<td>{{item.org }}</td>
             </tr>
         </tbody>
         <tfoot>
