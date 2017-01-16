@@ -19,34 +19,26 @@
         }
 
         function activate() {
-            $scope.items = [];
-            $scope.displayItems = [];
             $scope.markers = [];
+            $scope.displayMarkers = [];
 
             DataVirtSrvc.get(function(res) {
                 angular.forEach(res.d.results, function(result) {
-                    var item = {
-                        id: result.id,
-                        description: result.description,
-                        title: result.name,
-                        latitude: result.lat,
-                        longitude: result.lon,
-			rating: result.rating,
-			org: result.org
-                    }
-                    $scope.items.push(item);
 
                     var marker = {
-                      lng: parseFloat(result.lon),
-                      lat: parseFloat(result.lat),
-                      title: result.name,
-                      message: result.description,
-                      draggable: false
+                        org: result.org,
+                        rating: result.rating,
+                        id: result.id,
+                        lng: parseFloat(result.lon),
+                        lat: parseFloat(result.lat),
+                        title: result.name,
+                        message: result.description,
+                        draggable: false
                     }
                     $scope.markers.push(marker);
                 });
 
-                $scope.displayedItems = $scope.items;
+                $scope.displayedMarkers = $scope.markers;
             });
         }
 

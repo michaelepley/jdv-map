@@ -4,10 +4,10 @@
 </button>
 <br>
 <br>
-<leaflet lf-center="center" markers="markers" height="480px" width="100%"></leaflet>
+<leaflet lf-center="center" markers="markers" height="460px" width="100%"></leaflet>
 <br>
 <div class="table-responsive">
-    <table st-table="displayedItems" st-safe-src="items" class="table table-striped ev-vcenter">
+    <table st-table="displayedMarkers" st-safe-src="markers" class="table table-striped ev-vcenter">
         <thead>
             <tr>
                 <th st-sort="id" st-sort-default="true">DB-ID</th>
@@ -20,26 +20,26 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="item in displayedItems">
-                <td>{{item.id}}</td>
+            <tr ng-repeat="marker in displayedMarkers">
+                <td>{{marker.id}}</td>
 
-                <td>{{item.title }}</td>
+                <td>{{marker.title }}</td>
 
-		<td>{{item.rating }}</td>
+		<td>{{marker.rating }}</td>
 
-                <td>{{item.description }}</td>
+                <td>{{marker.message }}</td>
 
-                <td>{{item.latitude }}</td>
+                <td>{{marker.lat }}</td>
 
-                <td>{{item.longitude }}</td>
+                <td>{{marker.lng }}</td>
 
-		<td>{{item.org }}</td>
+		<td>{{marker.org }}</td>
             </tr>
         </tbody>
         <tfoot>
             <tr>
                 <td colspan="4" class="text-center">
-                    <div st-pagination="" st-items-by-page="10"></div>
+                    <div st-pagination="" st-items-by-page="5"></div>
                 </td>
             </tr>
         </tfoot>
